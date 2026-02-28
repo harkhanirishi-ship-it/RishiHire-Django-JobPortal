@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh; padding: 40px 0;">
+    <div class="card shadow-lg border-0 p-5" style="max-width: 500px; width: 100%; border-radius: 24px;">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-primary">Join HirePulse</h2>
+            <p class="text-muted">Create your account to start your journey</p>
+        </div>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Username</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-light border-0"><i class="far fa-user"></i></span>
+                    <input type="text" name="username" class="form-control bg-light border-0" placeholder="Username" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Email Address</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-light border-0"><i class="far fa-envelope"></i></span>
+                    <input type="email" name="email" class="form-control bg-light border-0" placeholder="email@example.com" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">I am a...</label>
+                <select name="user_type" class="form-select bg-light border-0" required>
+                    <option value="" disabled selected>Select User Type</option>
+                    <option value="candidate">Candidate (Looking for Job)</option>
+                    <option value="employer">Employer (Hiring Talent)</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-semibold">Password</label>
+                    <input type="password" name="password" class="form-control bg-light border-0" placeholder="••••••••" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-semibold">Confirm</label>
+                    <input type="password" name="confirm_password" class="form-control bg-light border-0" placeholder="••••••••" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-premium w-100 py-3 mt-3 shadow-sm">Create Account</button>
+        </form>
+        
+        <p class="text-center mt-4">Already registered? <a href="{% url 'login' %}" class="text-primary fw-bold text-decoration-none">Login here</a></p>
+    </div>
+</div>
+{% endblock %}

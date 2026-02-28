@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>My Jobs</h2>
+
+{% for job in jobs %}
+    <div class="card p-3 mb-3">
+        <h4>{{ job.title }}</h4>
+        <p>{{ job.location }}</p>
+        <p>Salary: {{ job.salary }}</p>
+
+        <a href="{% url 'view_applications' job.id %}" class="btn btn-primary">
+            View Applications
+        </a>
+    </div>
+{% empty %}
+    <p>No jobs posted yet</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-lg border-0" style="border-radius: 20px; overflow: hidden;">
+                <div class="bg-primary p-4 text-white text-center">
+                    <h3 class="fw-bold mb-0">Submit Your Application</h3>
+                    <p class="opacity-75 mb-0">Show them why you're the best fit!</p>
+                </div>
+                <div class="card-body p-5 bg-white">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary small uppercase">Full Name</label>
+                            <input type="text" name="full_name" class="form-control form-control-lg bg-light border-0" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary small uppercase">Email Address</label>
+                            <input type="email" name="email" class="form-control form-control-lg bg-light border-0" placeholder="Em@il Address" required>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-secondary small uppercase">Gender</label>
+                                <select name="gender" class="form-select form-control-lg bg-light border-0" required>
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-secondary small uppercase">Resume (PDF)</label>
+                                <input type="file" name="resume" class="form-control bg-light border-0" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary small uppercase">Cover Letter</label>
+                            <textarea name="cover_letter" rows="4" class="form-control bg-light border-0" placeholder="Tell us about your experience..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-premium w-100 py-3 shadow">Send Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

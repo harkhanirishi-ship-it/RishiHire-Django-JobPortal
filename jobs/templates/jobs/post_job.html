@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0" style="border-radius: 15px;">
+                <div class="card-body p-5">
+                    <h2 class="fw-bold mb-4 text-center">Post a New <span class="text-primary">Opportunity</span></h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row g-4">
+                            <div class="col-md-12">
+                                <label class="form-label fw-semibold text-muted">Job Title</label>
+                                <input type="text" name="title" class="form-control py-2 border-primary-subtle" placeholder="e.g. Senior Software Engineer" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold text-muted">Location</label>
+                                <input type="text" name="location" class="form-control py-2 border-primary-subtle" placeholder="Mumbai, Remote, etc." required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold text-muted">Annual Salary (₹)</label>
+                                <input type="number" name="salary" class="form-control py-2 border-primary-subtle" placeholder="1200000" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label fw-semibold text-muted">Detailed Description</label>
+                                <textarea name="description" rows="5" class="form-control py-2 border-primary-subtle" placeholder="Write about roles, responsibilities, and requirements..."></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-premium w-100 mt-5 py-3 shadow-sm">Publish This Job</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

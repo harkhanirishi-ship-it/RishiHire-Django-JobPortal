@@ -1,0 +1,14 @@
+<h2>My Posted Jobs</h2>
+
+{% for job in jobs %}
+    <div>
+        <h3>{{ job.title }}</h3>
+        <p>{{ job.company }}</p>
+
+        <a href="{% url 'view_applications' job.id %}">
+            View Applications
+        </a>
+    </div>
+{% empty %}
+    <p>No jobs posted yet</p>
+{% endfor %}
